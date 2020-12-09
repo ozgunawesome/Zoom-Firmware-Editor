@@ -1,3 +1,5 @@
-/Zoom.iml
+/Zoom-Firmware-Editor.iml
 .idea
 out
+target
+.DS_Store

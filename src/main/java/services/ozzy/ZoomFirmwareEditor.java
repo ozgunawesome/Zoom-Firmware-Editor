@@ -27,6 +27,7 @@ public class ZoomFirmwareEditor {
 
     static {
         options.addOption("x", "extractall", false, "Extract all files");
+        options.addOption("o", "output", true, "Use this directory as output (default = working dir)");
         options.addOption("f", "file", true, "Firmware file");
         options.addOption("h", "help", false, "Print this help");
     }
@@ -66,6 +67,8 @@ public class ZoomFirmwareEditor {
                     file = new File(cmd.getOptionValue('f'));
                 }
 
+                String outputDir = cmd.hasOption('o') ? cmd.getOptionValue('o') : System.getProperty("user.dir");
+
                 if (cmd.hasOption('x')) {
                     if (file == null) {
                         log.severe("No file specified.");
@@ -74,7 +77,7 @@ public class ZoomFirmwareEditor {
                     FirmwareService firmwareService = FirmwareService.getInstance();
                     Firmware firmware = firmwareService.initFirmware(file);
                     PatchService patchService = PatchService.getInstance();
-                    boolean result = patchService.saveAllPatchFiles(firmware, System.getProperty("user.dir"));
+                    boolean result = patchService.saveAllPatchFiles(firmware, outputDir);
                     if (result) {
                         log.info("Complete");
                     } else {
