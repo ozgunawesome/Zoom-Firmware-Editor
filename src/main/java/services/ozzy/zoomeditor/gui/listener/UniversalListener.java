@@ -1,6 +1,6 @@
-package main.java.zoomeditor.gui.listener;
+package services.ozzy.zoomeditor.gui.listener;
 
-import main.java.zoomeditor.controller.ApplicationController;
+import services.ozzy.zoomeditor.controller.ApplicationController;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

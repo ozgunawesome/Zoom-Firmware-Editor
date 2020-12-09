@@ -1,11 +1,13 @@
-package main.java.zoomeditor.gui;
+package services.ozzy.zoomeditor.gui;
 
-import main.java.ZoomFirmwareEditor;
+import services.ozzy.ZoomFirmwareEditor;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class AppWindow extends JFrame {
+public final class AppWindow extends JFrame {
+
+    private static final long serialVersionUID = -8769364485266832709L;
     private final CardLayout cl;
     private final JPanel cards;
 

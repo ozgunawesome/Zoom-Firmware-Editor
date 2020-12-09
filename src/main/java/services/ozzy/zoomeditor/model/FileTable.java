@@ -1,4 +1,4 @@
-package main.java.zoomeditor.model;
+package services.ozzy.zoomeditor.model;
 
 public class FileTable {
     public static final int SYSTEM_DATA_SIZE = 8;

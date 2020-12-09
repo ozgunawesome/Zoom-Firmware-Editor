@@ -1,4 +1,4 @@
-package main.java.zoomeditor.util;
+package services.ozzy.zoomeditor.util;
 
 import java.util.Arrays;
 

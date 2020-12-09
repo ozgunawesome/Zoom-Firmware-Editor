@@ -1,6 +1,6 @@
-package main.java.zoomeditor.model;
+package services.ozzy.zoomeditor.model;
 
-import main.java.zoomeditor.util.ByteUtils;
+import services.ozzy.zoomeditor.util.ByteUtils;
 
 import java.io.File;
 import java.util.ArrayList;

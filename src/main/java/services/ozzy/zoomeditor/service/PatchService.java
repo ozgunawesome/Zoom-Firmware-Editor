@@ -1,16 +1,17 @@
-package main.java.zoomeditor.service;
+package services.ozzy.zoomeditor.service;
 
-import main.java.ZoomFirmwareEditor;
-import main.java.zoomeditor.model.FileTable;
-import main.java.zoomeditor.model.Firmware;
-import main.java.zoomeditor.model.Patch;
-import main.java.zoomeditor.util.ArrayUtils;
-import main.java.zoomeditor.util.ByteUtils;
+import services.ozzy.ZoomFirmwareEditor;
+import services.ozzy.zoomeditor.model.FileTable;
+import services.ozzy.zoomeditor.model.Firmware;
+import services.ozzy.zoomeditor.model.Patch;
+import services.ozzy.zoomeditor.util.ArrayUtils;
+import services.ozzy.zoomeditor.util.ByteUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -133,6 +134,12 @@ public class PatchService {
             }
         }
         return false;
+    }
+
+    public boolean saveAllPatchFiles(Firmware firm, String workingDirectory) {
+        return firm.getPatches()
+                .stream()
+                .allMatch(patch -> this.savePatchFile(firm, patch.getFileName(), Paths.get(workingDirectory, patch.getFileName())));
     }
 
 }

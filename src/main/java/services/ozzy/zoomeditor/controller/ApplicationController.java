@@ -1,12 +1,12 @@
-package main.java.zoomeditor.controller;
+package services.ozzy.zoomeditor.controller;
 
-import main.java.ZoomFirmwareEditor;
-import main.java.zoomeditor.gui.AppWindow;
-import main.java.zoomeditor.gui.MainPanel;
-import main.java.zoomeditor.model.Firmware;
-import main.java.zoomeditor.model.Patch;
-import main.java.zoomeditor.service.FirmwareService;
-import main.java.zoomeditor.service.PatchService;
+import services.ozzy.ZoomFirmwareEditor;
+import services.ozzy.zoomeditor.gui.AppWindow;
+import services.ozzy.zoomeditor.gui.MainPanel;
+import services.ozzy.zoomeditor.model.Firmware;
+import services.ozzy.zoomeditor.model.Patch;
+import services.ozzy.zoomeditor.service.FirmwareService;
+import services.ozzy.zoomeditor.service.PatchService;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -242,14 +242,14 @@ public class ApplicationController {
         if (firm != null) {
             ArrayList<Patch> patches = firm.getPatches();
             if (patches != null) {
-                mainPanel.enableControls(true);
+                mainPanel.setControlsEnabled(true);
                 mainPanel.updateBlocksBar(firmwareService.getUsedBlocksCount(firm),
                         firmwareService.getTotalBlocksCount(firm));
                 mainPanel.updatePatchTable(patches);
                 return;
             }
         }
-        mainPanel.enableControls(false);
+        mainPanel.setControlsEnabled(false);
         mainPanel.updateBlocksBar(0, 0);
         mainPanel.updatePatchTable(null);
     }

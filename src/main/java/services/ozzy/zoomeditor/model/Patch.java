@@ -1,7 +1,7 @@
-package main.java.zoomeditor.model;
+package services.ozzy.zoomeditor.model;
 
-import main.java.zoomeditor.util.ArrayUtils;
-import main.java.zoomeditor.util.ByteUtils;
+import services.ozzy.zoomeditor.util.ArrayUtils;
+import services.ozzy.zoomeditor.util.ByteUtils;
 
 public class Patch {
     public static final int ADDR_OFFSET = 0;

@@ -1,7 +1,7 @@
-package main.java.zoomeditor.gui;
+package services.ozzy.zoomeditor.gui;
 
-import main.java.ZoomFirmwareEditor;
-import main.java.zoomeditor.gui.listener.UniversalListener;
+import services.ozzy.ZoomFirmwareEditor;
+import services.ozzy.zoomeditor.gui.listener.UniversalListener;
 
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
@@ -9,6 +9,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 class DisclaimerPanel extends JPanel {
     private static final String DISCLAIMER = ZoomFirmwareEditor.getMessage("disclaimerText");
+    private static final long serialVersionUID = -8095238062900351846L;
 
     DisclaimerPanel() {
         JLabel lblNewLabel = new JLabel(ZoomFirmwareEditor.getMessage("disclaimerLabel"));

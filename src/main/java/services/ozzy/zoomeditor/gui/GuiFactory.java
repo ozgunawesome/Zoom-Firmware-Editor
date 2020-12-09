@@ -1,4 +1,4 @@
-package main.java.zoomeditor.gui;
+package services.ozzy.zoomeditor.gui;
 
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.logging.Logger;
 
 class GuiFactory {
-    private final static String ICONS_PATH = "main/resources/icons/";
+    private final static String ICONS_PATH = "icons/";
     private static final Logger log = Logger.getLogger(GuiFactory.class.getName());
 
     static JButton getButton(String text, String iconName, String tooltip) {
@@ -32,6 +32,8 @@ class GuiFactory {
 
     static JTable getTable(TableModel tableModel) {
         JTable table = new JTable(tableModel) {
+            private static final long serialVersionUID = -6621357384978172098L;
+
             @Override
             public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
                 Component component = super.prepareRenderer(renderer, row, column);

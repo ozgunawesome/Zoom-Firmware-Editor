@@ -1,17 +1,18 @@
-package main.java.zoomeditor.gui;
+package services.ozzy.zoomeditor.gui;
 
-import main.java.ZoomFirmwareEditor;
-import main.java.zoomeditor.gui.listener.UniversalListener;
-import main.java.zoomeditor.gui.tablemodel.PatchTableModel;
-import main.java.zoomeditor.model.Patch;
+import services.ozzy.ZoomFirmwareEditor;
+import services.ozzy.zoomeditor.gui.listener.UniversalListener;
+import services.ozzy.zoomeditor.gui.tablemodel.PatchTableModel;
+import services.ozzy.zoomeditor.model.Patch;
 
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import java.util.ArrayList;
+import java.util.List;
 
 public class MainPanel extends JPanel {
 
+    private static final long serialVersionUID = -2796012198391923192L;
     private JTable table;
     private final JScrollPane scrollPane;
     private final JProgressBar blocksBar;
@@ -22,7 +23,7 @@ public class MainPanel extends JPanel {
     private final JButton btnRemove;
     private final JButton btnSaveFirmware;
 
-    private final static int BUTTON_WIDTH = "true".equalsIgnoreCase(ZoomFirmwareEditor.getProperty("useWindowsLookAndFeel")) ? 110 : 125;
+    private static final int BUTTON_WIDTH = "true".equalsIgnoreCase(ZoomFirmwareEditor.getProperty("useWindowsLookAndFeel")) ? 110 : 125;
 
     public MainPanel() {
         scrollPane = new JScrollPane();
@@ -103,27 +104,27 @@ public class MainPanel extends JPanel {
                                 .addGap(6))
         );
 
-        GroupLayout gl_panel = new GroupLayout(panel);
-        gl_panel.setHorizontalGroup(
-                gl_panel.createParallelGroup(Alignment.LEADING)
+        GroupLayout groupLayoutPanel = new GroupLayout(panel);
+        groupLayoutPanel.setHorizontalGroup(
+                groupLayoutPanel.createParallelGroup(Alignment.LEADING)
                         .addComponent(btnSaveFirmware, GroupLayout.PREFERRED_SIZE, BUTTON_WIDTH, GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnOpenFirmware, GroupLayout.PREFERRED_SIZE, BUTTON_WIDTH, GroupLayout.PREFERRED_SIZE)
         );
-        gl_panel.setVerticalGroup(
-                gl_panel.createParallelGroup(Alignment.LEADING)
-                        .addGroup(gl_panel.createSequentialGroup()
+        groupLayoutPanel.setVerticalGroup(
+                groupLayoutPanel.createParallelGroup(Alignment.LEADING)
+                        .addGroup(groupLayoutPanel.createSequentialGroup()
                                 .addComponent(btnOpenFirmware)
                                 .addPreferredGap(ComponentPlacement.RELATED)
                                 .addComponent(btnSaveFirmware)
                                 .addContainerGap(30, Short.MAX_VALUE))
         );
-        panel.setLayout(gl_panel);
+        panel.setLayout(groupLayoutPanel);
         setLayout(groupLayout);
 
-        enableControls(false);
+        setControlsEnabled(false);
     }
 
-    public void enableControls(boolean isEnabled) {
+    public final void setControlsEnabled(boolean isEnabled) {
         btnExtract.setEnabled(isEnabled);
         btnInject.setEnabled(isEnabled);
         btnMoveUp.setEnabled(isEnabled);
@@ -139,7 +140,7 @@ public class MainPanel extends JPanel {
         blocksBar.setString("Used: " + used + "/" + total + " blocks");
     }
 
-    public void updatePatchTable(ArrayList<Patch> patches) {
+    public void updatePatchTable(List<Patch> patches) {
         if (patches == null) {
             scrollPane.setViewportView(new JTable());
             return;
